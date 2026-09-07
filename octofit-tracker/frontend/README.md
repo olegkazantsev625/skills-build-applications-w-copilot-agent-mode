@@ -1,12 +1,23 @@
-# React + Vite
+# OctoFit Tracker Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The presentation tier uses React 19, Vite, Bootstrap, and react-router-dom.
 
-Currently, two official plugins are available:
+## Environment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Define `VITE_CODESPACE_NAME` in `.env.local` when running the frontend in Codespaces:
 
-## Expanding the ESLint configuration
+```env
+VITE_CODESPACE_NAME=your-codespace-name
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+When `VITE_CODESPACE_NAME` is set, API requests use:
+
+```text
+https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/[component]/
+```
+
+When `VITE_CODESPACE_NAME` is unset, the app safely falls back to:
+
+```text
+http://localhost:8000/api/[component]/
+```
